@@ -1,0 +1,5 @@
+# Summary Section 4 - Introduction to Algorithm and Golang
+- Perkenalan antara mentor dengan mentee seputar nama, jurusan, asal kampus, bahasa pemrograman yang digunakan pertama kali, motivasi mengikuti program SIB golang ini.
+- Penjelasan tools yang akan digunakan serta tutorial instalasi tools tersebut. Tools yang digunakan antara lain, VS code, Golang, Akun Github, Git, Akun AWS, MySQL Server, Postman, dan Docker, 
+- Penjelasan materi mengenai perkenalan ke algoritma seperti apa itu algoritma, karakteristiknya, dan contohnya. Secara singkat algoritma adalah sekumpulan instruksi atau perintah untuk menyelesaikan suatu permasalahan. Karakteristik algoritma adalah memiliki batas, instruksi yang terdefinisi secara baik, dan efektif serta efisien. Contoh algoritma yang biasa digunakan adalah algoritma searching, sorting, dan rumus matematika.  
+- Penjelasan materi dan penerapan flowchart dan pseudocode. Psudocode adalah bahasa alami atau bahasa polos yang digunakan software developer sebelum membuat suatu program. Flowchart adalah diagram yang menjelaskan alur kerja dari suatu program.

@@ -1,0 +1,4 @@
+# Summary Section 5 - Basic Programming
+- Review Materi Flowchart yang dibahas pada Kamis, 16 Februari 2023, dimana diberikan soal dari mentor seperti buatlah flowchart untuk menghitung luas lingkaran dan flowchart untuk menentukan kategori suatu nilai. Kemudian ada juga tanya jawab antara mentee dan mentor mengenai materi flowchart seperti simbol-simbol yang biasa digunakan pada flowchart(Terminator, Decision, Looping, Process, Input/Output)
+- Perkenalan bahasa Go mulai dari cara instalasi, membuat file, syntax dasar golang, operator, operand, tipe data, branching, looping, dan pemecahan studi kasus sederhana menggunakan bahasa golang.
+- Sesi tanya jawab seputar perkenalan pada bahasa golang antara mentee dan mentor
