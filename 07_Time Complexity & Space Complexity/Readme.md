@@ -1,0 +1,4 @@
+# Section 7 - Time Complexity & Space Complexity
+- Time Complexity atau Kompleksitas Waktu adalah waktu yang dibutuhkan untuk menjalankan atau mengeksekusi suatu algoritma. Time Complexity juga dapat diartikan sebagai waktu komputasi dari sebuah algoritma.
+- Space Complexity atau Kompleksitas Ruang adalah memori atau ruang penyimpanan yang dibutuhkan pada suatu algoritma.
+- Di dunia nyata, developer software terikat oleh memori fisik dari sistem yang ingin mereka jalankan. Di sinilah kompleksitas ruang menjadi penting, karena kita tidak pernah ingin menjalankan software yang melebihi jumlah ruang yang dimiliki sistem pada waktu tertentu. Di sisi lain, kita tidak ingin software kita memakan waktu terlalu lama sehingga aplikasi kami macet dan melambat. Oleh karena itu, Time Complexity dan Space Complexity ini penting untuk diterapkan.

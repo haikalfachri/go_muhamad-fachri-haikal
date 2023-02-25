@@ -1,0 +1,4 @@
+# Section 8 - Data Structure
+- Data Structure atau Struktur Data adalah bagaimana cara kita menyimpan, mengatur, dan mengambil data sehingga data tersebut lebih terorganisir dan terstruktur.
+- Pada materi ini, dipelajari 3 struktur data yang ada pada bahasa go, yaitu Array, Slice, dan Map.
+- Array adalah struktur data yang dapat menyimpan kelompok data yang berbeda-beda atau hanya satu dengan alokasi yang statis atau tetap. Slice mirip dengan Array, tetapi alokasinya dinamis atau dapat berubah-ubah. Kemudian yang terakhir adalah Map, yaitu struktur data yang menyimpan data menggunakan bentuk key dan value dimana mirip dengan cara kerja kamus pada dunia nyata.
