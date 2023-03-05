@@ -9,20 +9,19 @@ func KonversiIntToRomawi(num int) string {
     listValue := []int{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1,}
     hasil := ""
     
-    for num > 0{
-        for i, val := range listValue{
-            if num >= val{
-                num -= val
-                hasil += listSimbol[i]
-            }
+    for i, val := range listValue{
+        for num >= val{
+            num -= val
+            hasil += listSimbol[i]
         }
     }
     return hasil
 }
 
 func main() {
-    fmt.Println(KonversiIntToRomawi(1994)) // Output: MCMXCIV
-    fmt.Println(KonversiIntToRomawi(58)) // Output: LVIII
-    fmt.Println(KonversiIntToRomawi(9)) // Output: IX
     fmt.Println(KonversiIntToRomawi(4)) // Output: IV
+    fmt.Println(KonversiIntToRomawi(9)) // Output: IX
+    fmt.Println(KonversiIntToRomawi(23)) // Output: XXIII
+    fmt.Println(KonversiIntToRomawi(2021)) // Output: MMXXI
+    fmt.Println(KonversiIntToRomawi(1646)) // Output: MDCXLVI
 }
