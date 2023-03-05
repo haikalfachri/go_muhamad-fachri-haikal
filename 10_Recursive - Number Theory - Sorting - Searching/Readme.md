@@ -1,0 +1,5 @@
+# Section 10 - Recursive - Number Theory - Sorting - Searching
+- Fungsi rekursif adalah metode perulangan yang memanfaatkan pemanggilan fungsinya sendiri untuk melakukan perulangan. Perulangan dilakukan sampai mencapai basis fungsinya. Pada umumnya penggunaan rekursif ini dapat berguna untuk mempersingkat penulisan code program sehingga kita mudah untuk melihat dan mendesain jalan untuk menyelesaikan codenya.
+- Number Theory atau teori angka adalah cabang ilmu matematika yang mempelajari bilangan integer atau bulat. Contohnya adalah perhitungan faktorial, KPK, dan FPB.
+- Sorting adalah metode untuk mengurutkan suatu list atau daftar secara menaik ataupun menurun. Contoh algoritma sorting adalah selection sort, merge sort, dan bubble sort. Golang juga punya package bawaan untuk melakukan sorting yaitu package sort
+- Searching adalah metode untuk melakukan pencarian sebuah nilai dalam suatu list atau daftar. Contoh algoritma searching ini adalah binary search dan linear search.
