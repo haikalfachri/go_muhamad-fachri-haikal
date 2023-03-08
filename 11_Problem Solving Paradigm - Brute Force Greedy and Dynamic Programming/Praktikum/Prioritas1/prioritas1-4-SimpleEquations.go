@@ -14,7 +14,7 @@ func SimpleEquations(a, b, c int) {
 
 	for x = 1; x*x <= float64(c); x++ { // nilai x^ || y^ || z^ <= C
 		for y = x; y*y <= float64(c); y++ { 
-			z = x - y - float64(a) // x + y + z = A
+			z = float64(a) - x - y // x + y + z = A
 			if x*y*z == float64(b) && x*x + y*y + z*z == float64(c) {
 				fmt.Println(int(x), int(y), int(z))
 				foundSolution = true
