@@ -1,0 +1,7 @@
+# Section 12 - Concurrent Programming
+- Pada dunia programming, konkurensi mengacu pada kemampuan program untuk melakukan beberapa tugas secara bersamaan atau simultan, tanpa harus menunggu tugas yang satu selesai terlebih dahulu sebelum memulai tugas yang lain.
+- Pada umumnya program terbagi menjadi 3 jenis dalam pengeksekusiannya, yaitu sekuensial, paralel, dan konkuren.
+- Program sekuensial adalah program yang mengeksekusi tugas secara berurutan sehingga ketika ada 2 tugas pada suatu program, maka tugas 1 akan dieksekusi terlebih dahulu kemudian tugas 1 selesai, baru tugas kedua bisa dieksekusi.
+- Program paralel adalah program yang dapat mengeksekusi beberapa tugas secara bersamaan atau beriringan dalam satu waktu.
+- Program konkuren adalah program yang dapat mengeksekusi beberapa tugas secara independen, dan mungkin terlihat bersamaan. Perbedaan program paralel dan konkuren ada di letak hardware dan softwarenya. Program paralel akan mengeksekusi dan membagi beberapa tugasnya pada beberapa prosesor. Sedangkan program konkuren dapat melakukan eksekusi beberapa tugasnya pada 1 prosesor yang sama.
+- Penerapan konkuren pada golang dapat dilakukan dengan goroutine. Agar beberapa goroutine dapat berkomunikasi satu dengan lainnya, dapat dilakukan menggunakan objek channel.
