@@ -1,0 +1,15 @@
+CREATE TABLE `alta_online_shop_`.`addresses` 
+(`id` INT NOT NULL AUTO_INCREMENT , 
+`address` TEXT NOT NULL , 
+`created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+`updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+ALTER TABLE `users` CHANGE `address` `address_id` INT NOT NULL;
+
+ALTER TABLE `users` 
+ADD FOREIGN KEY (`address_id`) 
+REFERENCES `addresses`(`id`) 
+ON DELETE RESTRICT 
+ON UPDATE RESTRICT;

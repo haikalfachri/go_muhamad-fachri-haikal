@@ -1,0 +1,1 @@
+SELECT * FROM transactions WHERE transactions.user_id IN (1, 2);

@@ -1,0 +1,1 @@
+SELECT COUNT(*) AS JumlahPerempuan FROM users WHERE users.gender = "F";

@@ -1,0 +1,1 @@
+SELECT transactions.user_id, SUM(transactions.total_price) FROM transactions WHERE transactions.user_id = 1;

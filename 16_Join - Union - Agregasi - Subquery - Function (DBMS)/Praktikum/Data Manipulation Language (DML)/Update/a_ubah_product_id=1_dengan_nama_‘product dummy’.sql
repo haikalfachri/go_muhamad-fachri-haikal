@@ -1,0 +1,1 @@
+UPDATE `products` SET `name` = 'product dummy' WHERE `products`.`id` = 1;

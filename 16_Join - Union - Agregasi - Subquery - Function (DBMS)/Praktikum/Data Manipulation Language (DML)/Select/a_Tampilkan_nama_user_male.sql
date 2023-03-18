@@ -1,0 +1,1 @@
+SELECT users.name FROM users WHERE users.gender = "M";

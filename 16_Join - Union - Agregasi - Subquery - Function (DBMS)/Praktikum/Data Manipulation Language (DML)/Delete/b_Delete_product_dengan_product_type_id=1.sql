@@ -1,0 +1,1 @@
+DELETE FROM `products` WHERE `products`.`product_type_id` = 1;
