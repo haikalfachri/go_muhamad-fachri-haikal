@@ -1,15 +1,15 @@
-# Create User
+# Create User (POST)
 curl -X POST -H "Content-type: application/json" -d "{\"name\":\"Haikal Fachri\", \"email\":\"haikal@mail.id\", \"password\":\"123\"}" localhost:8000/users
 curl -X POST -H "Content-type: application/json" -d "{\"name\":\"Dodo Widodo\", \"email\":\"dodo@mail.id\", \"password\":\"456\"}" localhost:8000/users
 
-# Get All User
+# Get All User (GET)
 curl -X GET localhost:8000/users
 
-# Get User By Id
+# Get User By Id (GET)
 curl -X GET localhost:8000/users/2
 
-# DELETE User By Id
+# Delete User By Id (DELETE)
 curl -X DELETE localhost:8000/users/2
 
-# UPDATE User
+# Update User (PUT)
 curl -X PUT -H "Content-type: application/json" -d "{\"name\":\"Updated Name\", \"email\":\"updatedemail@mail.id\", \"password\":\"updatedpass\"}" localhost:8000/users/1
