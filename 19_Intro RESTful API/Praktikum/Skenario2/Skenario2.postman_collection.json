@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "1079566c-04ce-4e1c-9085-b82b7a5f8579",
+		"name": "Skenario2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26561954"
+	},
+	"item": [
+		{
+			"name": "1_Get all client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/client",
+					"protocol": "https",
+					"host": [
+						"virtserver",
+						"swaggerhub",
+						"com"
+					],
+					"path": [
+						"sepulsa",
+						"RentABook-API",
+						"1.0.0",
+						"client"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2_Post a new client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"client_id\": 1234,\r\n  \"client_key\": \"CLIENT01\",\r\n  \"client_secret\": \"SECRET01\",\r\n  \"status\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/client",
+					"protocol": "https",
+					"host": [
+						"virtserver",
+						"swaggerhub",
+						"com"
+					],
+					"path": [
+						"sepulsa",
+						"RentABook-API",
+						"1.0.0",
+						"client"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3_Put a client",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"client_id\": 1234,\r\n  \"client_key\": \"CLIENT01\",\r\n  \"client_secret\": \"SECRET01\",\r\n  \"status\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/client/1234",
+					"protocol": "https",
+					"host": [
+						"virtserver",
+						"swaggerhub",
+						"com"
+					],
+					"path": [
+						"sepulsa",
+						"RentABook-API",
+						"1.0.0",
+						"client",
+						"1234"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4_Delete a client",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/client/1234",
+					"protocol": "https",
+					"host": [
+						"virtserver",
+						"swaggerhub",
+						"com"
+					],
+					"path": [
+						"sepulsa",
+						"RentABook-API",
+						"1.0.0",
+						"client",
+						"1234"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
