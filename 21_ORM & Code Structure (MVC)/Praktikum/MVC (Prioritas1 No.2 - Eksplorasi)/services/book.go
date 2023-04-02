@@ -15,24 +15,24 @@ func InitBookService() BookService {
 	}
 }
 
-func (sb *BookService) GetAll() ([]models.Book, error){
-	return sb.repository.GetAll()
+func (bs *BookService) GetAll() ([]models.Book, error){
+	return bs.repository.GetAll()
 }
 
-func (sb *BookService) GetById(id string) (models.Book, error){
-	return sb.repository.GetById(id)
+func (bs *BookService) GetById(id string) (models.Book, error){
+	return bs.repository.GetById(id)
 }
 
-func (sb *BookService) Create(bukuInput models.BookInput) (models.Book, error){
-	return sb.repository.Create(bukuInput)
+func (bs *BookService) Create(bookInput models.BookInput) (models.Book, error){
+	return bs.repository.Create(bookInput)
 }
 
-func (sb *BookService) Update(bukuInput models.BookInput, id string) (models.Book, error){
-	return sb.repository.Update(bukuInput, id)
+func (bs *BookService) Update(bookInput models.BookInput, id string) (models.Book, error){
+	return bs.repository.Update(bookInput, id)
 }
 
-func (sb *BookService) Delete(id string) (error){
-	return sb.repository.Delete(id)
+func (bs *BookService) Delete(id string) (error){
+	return bs.repository.Delete(id)
 }
 
 

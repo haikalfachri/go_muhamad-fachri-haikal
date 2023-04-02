@@ -23,63 +23,63 @@ func (br *BookRepositoryImp) GetAll() ([]models.Book, error) {
 }
 
 func (br *BookRepositoryImp) GetById(id string) (models.Book, error) {
-	var buku models.Book
+	var book models.Book
 
-	if err := database.DB.First(&buku, id).Error; err != nil {
+	if err := database.DB.First(&book, id).Error; err != nil {
 		return models.Book{}, err
 	}
-	return buku, nil
+	return book, nil
 }
 
-func (br *BookRepositoryImp) Create(bukuInput models.BookInput) (models.Book, error) {
-    if bukuInput.Title == "" || bukuInput.Writer == "" || bukuInput.Publisher == ""{
+func (br *BookRepositoryImp) Create(bookInput models.BookInput) (models.Book, error) {
+    if bookInput.Title == "" || bookInput.Writer == "" || bookInput.Publisher == ""{
 		return models.Book{}, errors.New("All field must not be empty!")
 	}
 
-	var buku models.Book = models.Book{
-		Title : bukuInput.Title,
-		Writer: bukuInput.Writer,
-		Publisher : bukuInput.Publisher,
+	var book models.Book = models.Book{
+		Title : bookInput.Title,
+		Writer: bookInput.Writer,
+		Publisher : bookInput.Publisher,
 	}
 
-	if err := database.DB.Create(&buku).Error; err != nil {
+	if err := database.DB.Create(&book).Error; err != nil {
 		return models.Book{}, err
 	}
 
-	if err := database.DB.Last(&buku).Error; err != nil {
+	if err := database.DB.Last(&book).Error; err != nil {
 		return models.Book{}, err
 	}
-    return buku, nil
+    return book, nil
 }
 
-func (br *BookRepositoryImp) Update(bukuInput models.BookInput, id string) (models.Book, error) {
-	if bukuInput.Title == "" || bukuInput.Writer == "" || bukuInput.Publisher == ""{
+func (br *BookRepositoryImp) Update(bookInput models.BookInput, id string) (models.Book, error) {
+	if bookInput.Title == "" || bookInput.Writer == "" || bookInput.Publisher == ""{
 		return models.Book{}, errors.New("All field must not be empty!")
 	}
 
-	buku, err := br.GetById(id)
+	book, err := br.GetById(id)
 
 	if err != nil {
 		return models.Book{}, err
 	}
-	buku.Title = bukuInput.Title
-	buku.Writer = bukuInput.Writer
-	buku.Publisher = bukuInput.Publisher
+	book.Title = bookInput.Title
+	book.Writer = bookInput.Writer
+	book.Publisher = bookInput.Publisher
 
-	if err := database.DB.Save(&buku).Error; err != nil {
+	if err := database.DB.Save(&book).Error; err != nil {
 		return models.Book{}, err
 	}
-    return buku, nil
+    return book, nil
 }
 
 func (br *BookRepositoryImp) Delete(id string) error {
-	buku, err := br.GetById(id)
+	book, err := br.GetById(id)
 
 	if err != nil {
 		return err
 	}
 
-	if err := database.DB.Delete(&buku).Error; err != nil {
+	if err := database.DB.Delete(&book).Error; err != nil {
 		return err
 	}
     return nil

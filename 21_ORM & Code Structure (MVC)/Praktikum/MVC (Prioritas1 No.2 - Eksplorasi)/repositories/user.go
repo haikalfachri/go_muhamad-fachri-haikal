@@ -34,8 +34,8 @@ func (ur *UserRepositoryImp) GetById(id string) (models.User, error) {
 }
 
 func (ur *UserRepositoryImp) Create(userInput models.UserInput) (models.User, error) {
-    if userInput.Name == "" || userInput.Email == "" || userInput.Password == ""{
-		return models.User{}, errors.New("All field must not be empty!")
+    if userInput.Name == "" || userInput.Email == "" || userInput.Password == "" {
+		return models.User{}, errors.New("All field must not be empty")
 	}
 
 	hashedPass, err := bcrypt.GenerateFromPassword([]byte(userInput.Password), bcrypt.DefaultCost) 

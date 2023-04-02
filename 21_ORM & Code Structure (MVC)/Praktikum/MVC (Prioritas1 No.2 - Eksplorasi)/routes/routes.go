@@ -21,4 +21,11 @@ func Setup(e *echo.Echo){
 	e.POST("/books", bookController.Create)
 	e.DELETE("/books/:id", bookController.Delete)
 	e.PUT("/books/:id", bookController.Update)
+
+	blogController := controllers.InitBlogContoller()
+	e.GET("/blogs", blogController.GetAll)
+	e.GET("/blogs/:id", blogController.GetById)
+	e.POST("/blogs", blogController.Create)
+	e.DELETE("/blogs/:id", blogController.Delete)
+	e.PUT("/blogs/:id", blogController.Update)
 }

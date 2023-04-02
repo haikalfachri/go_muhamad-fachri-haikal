@@ -19,3 +19,11 @@ type BookRepository interface {
 	Update(bookInput models.BookInput, id string) (models.Book, error)
 	Delete(id string) error
 }
+
+type BlogRepository interface {
+	GetAll() ([]models.Blog, error)
+	GetById(id string) (models.Blog, error)
+	Create(blogInput models.BlogInput) (models.Blog, error)
+	Update(blogInput models.BlogInput, id string) (models.Blog, error)
+	Delete(id string) error
+}

@@ -52,13 +52,6 @@ func (bc *BookController) Create(c echo.Context) error {
 	var bookInput models.BookInput
 	c.Bind(&bookInput)
 
-	// if err := c.Bind(&bookInput).Error; err != nil {
-	//     return c.JSON(http.StatusBadRequest, map[string]interface{}{
-	//         "message": "invalid request",
-	//         "error": err,
-	//     })
-	// }
-
 	book, err := bc.service.Create(bookInput)
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, map[string]interface{}{
@@ -75,13 +68,6 @@ func (bc *BookController) Create(c echo.Context) error {
 func (bc *BookController) Update(c echo.Context) error {
 	var bookInput models.BookInput
 	c.Bind(&bookInput)
-
-	// if err := c.Bind(&bookInput).Error; err != nil {
-	//     return c.JSON(http.StatusBadRequest, map[string]interface{}{
-	//         "message": "invalid request",
-	//         "error":   err,
-	//     })
-	// }
 
 	id := c.Param("id")
 	book, err := bc.service.Update(bookInput, id)
