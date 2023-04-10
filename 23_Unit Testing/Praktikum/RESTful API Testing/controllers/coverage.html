@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>controllers: Go Coverage Report</title>
+		<style>
+			body {
+				background: black;
+				color: rgb(80, 80, 80);
+			}
+			body, pre, #legend span {
+				font-family: Menlo, monospace;
+				font-weight: bold;
+			}
+			#topbar {
+				background: black;
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				height: 42px;
+				border-bottom: 1px solid rgb(80, 80, 80);
+			}
+			#content {
+				margin-top: 50px;
+			}
+			#nav, #legend {
+				float: left;
+				margin-left: 10px;
+			}
+			#legend {
+				margin-top: 12px;
+			}
+			#nav {
+				margin-top: 10px;
+			}
+			#legend span {
+				margin: 0 5px;
+			}
+			.cov0 { color: rgb(192, 0, 0) }
+.cov1 { color: rgb(128, 128, 128) }
+.cov2 { color: rgb(116, 140, 131) }
+.cov3 { color: rgb(104, 152, 134) }
+.cov4 { color: rgb(92, 164, 137) }
+.cov5 { color: rgb(80, 176, 140) }
+.cov6 { color: rgb(68, 188, 143) }
+.cov7 { color: rgb(56, 200, 146) }
+.cov8 { color: rgb(44, 212, 149) }
+.cov9 { color: rgb(32, 224, 152) }
+.cov10 { color: rgb(20, 236, 155) }
+
+		</style>
+	</head>
+	<body>
+		<div id="topbar">
+			<div id="nav">
+				<select id="files">
+				
+				<option value="file0">restful_api_testing/controllers/blog.go (96.3%)</option>
+				
+				<option value="file1">restful_api_testing/controllers/book.go (96.3%)</option>
+				
+				<option value="file2">restful_api_testing/controllers/user.go (97.0%)</option>
+				
+				</select>
+			</div>
+			<div id="legend">
+				<span>not tracked</span>
+			
+				<span class="cov0">not covered</span>
+				<span class="cov8">covered</span>
+			
+			</div>
+		</div>
+		<div id="content">
+		
+		<pre class="file" id="file0" style="display: none">package controllers
+
+import (
+        "restful_api_testing/models"
+        "restful_api_testing/services"
+        "net/http"
+
+        "github.com/labstack/echo/v4"
+)
+
+type BlogController struct {
+        service services.BlogService
+}
+
+func InitBlogContoller() BlogController <span class="cov8" title="1">{
+        return BlogController{
+                service: services.InitBlogService(),
+        }
+}</span>
+
+func (bc *BlogController) GetAll(c echo.Context) error <span class="cov8" title="1">{
+        blogs, err := bc.service.GetAll()
+        if err != nil </span><span class="cov0" title="0">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to fetch all blogs",
+                        "error":   err,
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to fetch all blogs",
+                "blog":    blogs,
+        })</span>
+}
+
+func (bc *BlogController) GetById(c echo.Context) error <span class="cov8" title="1">{
+        id := c.Param("id")
+
+        blog, err := bc.service.GetById(id)
+        if err != nil </span><span class="cov8" title="1">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to fetch a blog",
+                        "error":   err.Error(),
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to fetch a blog",
+                "blog":    blog,
+        })</span>
+}
+
+func (bc *BlogController) Create(c echo.Context) error <span class="cov8" title="1">{
+        var blogInput models.BlogInput
+        c.Bind(&amp;blogInput)
+
+        blog, err := bc.service.Create(blogInput)
+        if err != nil </span><span class="cov8" title="1">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to create a blog",
+                        "error":   err.Error(),
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to create a blog",
+                "blog":    blog,
+        })</span>
+}
+
+func (bc *BlogController) Update(c echo.Context) error <span class="cov8" title="1">{
+        var blogInput models.BlogInput
+        c.Bind(&amp;blogInput)
+
+        id := c.Param("id")
+        blog, err := bc.service.Update(blogInput, id)
+        if err != nil </span><span class="cov8" title="1">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to update blog",
+                        "error":   err,
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to update a blog",
+                "blog":    blog,
+        })</span>
+}
+
+func (bc *BlogController) Delete(c echo.Context) error <span class="cov8" title="1">{
+        id := c.Param("id")
+
+        if err := bc.service.Delete(id); err != nil </span><span class="cov8" title="1">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to delete a blog",
+                        "error":   err,
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to delete a blog",
+        })</span>
+}
+</pre>
+		
+		<pre class="file" id="file1" style="display: none">package controllers
+
+import (
+        "restful_api_testing/models"
+        "restful_api_testing/services"
+        "net/http"
+
+        "github.com/labstack/echo/v4"
+)
+
+type BookController struct {
+        service services.BookService
+}
+
+func InitBookContoller() BookController <span class="cov8" title="1">{
+        return BookController{
+                service: services.InitBookService(),
+        }
+}</span>
+
+func (bc *BookController) GetAll(c echo.Context) error <span class="cov8" title="1">{
+        books, err := bc.service.GetAll()
+        if err != nil </span><span class="cov0" title="0">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to fetch all books",
+                        "error":   err,
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to fetch all books",
+                "book":    books,
+        })</span>
+}
+
+func (bc *BookController) GetById(c echo.Context) error <span class="cov8" title="1">{
+        id := c.Param("id")
+
+        book, err := bc.service.GetById(id)
+        if err != nil </span><span class="cov8" title="1">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to fetch a book",
+                        "error":   err,
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to fetch a book",
+                "book":    book,
+        })</span>
+}
+
+func (bc *BookController) Create(c echo.Context) error <span class="cov8" title="1">{
+        var bookInput models.BookInput
+        c.Bind(&amp;bookInput)
+
+        book, err := bc.service.Create(bookInput)
+        if err != nil </span><span class="cov8" title="1">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to create a book",
+                        "error":   err.Error(),
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to create a book",
+                "book":    book,
+        })</span>
+}
+
+func (bc *BookController) Update(c echo.Context) error <span class="cov8" title="1">{
+        var bookInput models.BookInput
+        c.Bind(&amp;bookInput)
+
+        id := c.Param("id")
+        book, err := bc.service.Update(bookInput, id)
+        if err != nil </span><span class="cov8" title="1">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to update book",
+                        "error":   err,
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to update a book",
+                "book":    book,
+        })</span>
+}
+
+func (bc *BookController) Delete(c echo.Context) error <span class="cov8" title="1">{
+        id := c.Param("id")
+
+        if err := bc.service.Delete(id); err != nil </span><span class="cov8" title="1">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to delete a book",
+                        "error":   err,
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to delete a book",
+        })</span>
+}
+</pre>
+		
+		<pre class="file" id="file2" style="display: none">package controllers
+
+import (
+        "restful_api_testing/middlewares"
+        "restful_api_testing/models"
+        "restful_api_testing/services"
+        "net/http"
+
+        "github.com/labstack/echo/v4"
+)
+
+type UserController struct {
+        service services.UserService
+}
+
+func InitUserContoller(jwtAuth *middlewares.JWTConfig) UserController <span class="cov8" title="1">{
+        return UserController{
+                service: services.InitUserService(jwtAuth),
+        }
+}</span>
+
+func (uc *UserController) GetAll(c echo.Context) error <span class="cov8" title="1">{
+        users, err := uc.service.GetAll()
+        if err != nil </span><span class="cov0" title="0">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to fetch all user",
+                        "error":   err,
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to fetch all user",
+                "user":    users,
+        })</span>
+}
+
+func (uc *UserController) GetById(c echo.Context) error <span class="cov8" title="1">{
+        id := c.Param("id")
+
+        user, err := uc.service.GetById(id)
+        if err != nil </span><span class="cov8" title="1">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to fetch a user",
+                        "error":   err,
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to fetch a user",
+                "user":    user,
+        })</span>
+}
+
+func (uc *UserController) Create(c echo.Context) error <span class="cov8" title="1">{
+        var userInput models.UserInput
+        c.Bind(&amp;userInput)
+
+        user, err := uc.service.Create(userInput)
+        if err != nil </span><span class="cov8" title="1">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to create a user",
+                        "error":   err.Error(),
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to create a user",
+                "user":    user,
+        })</span>
+}
+
+func (uc *UserController) Update(c echo.Context) error <span class="cov8" title="1">{
+        var userInput models.UserInput
+        c.Bind(&amp;userInput)
+
+        id := c.Param("id")
+        user, err := uc.service.Update(userInput, id)
+        if err != nil </span><span class="cov8" title="1">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to update user",
+                        "error":   err,
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to update a user",
+                "user":    user,
+        })</span>
+}
+
+func (uc *UserController) Delete(c echo.Context) error <span class="cov8" title="1">{
+        id := c.Param("id")
+
+        if err := uc.service.Delete(id); err != nil </span><span class="cov8" title="1">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to delete a user",
+                        "error":   err,
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "success to delete a user",
+        })</span>
+}
+
+func (uc *UserController) Login(c echo.Context) error <span class="cov8" title="1">{
+        var userInput models.UserInput
+        c.Bind(&amp;userInput)
+
+        token, err := uc.service.Login(userInput)
+        if err != nil </span><span class="cov8" title="1">{
+                return c.JSON(http.StatusBadRequest, map[string]interface{}{
+                        "message": "failed to login",
+                        "error":   err.Error(),
+                })
+        }</span>
+        <span class="cov8" title="1">return c.JSON(http.StatusOK, map[string]interface{}{
+                "message": "login success",
+                "token": token,
+        })</span>
+}</pre>
+		
+		</div>
+	</body>
+	<script>
+	(function() {
+		var files = document.getElementById('files');
+		var visible;
+		files.addEventListener('change', onChange, false);
+		function select(part) {
+			if (visible)
+				visible.style.display = 'none';
+			visible = document.getElementById(part);
+			if (!visible)
+				return;
+			files.value = part;
+			visible.style.display = 'block';
+			location.hash = part;
+		}
+		function onChange() {
+			select(files.value);
+			window.scrollTo(0, 0);
+		}
+		if (location.hash != "") {
+			select(location.hash.substr(1));
+		}
+		if (!visible) {
+			select("file0");
+		}
+	})();
+	</script>
+</html>
