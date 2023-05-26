@@ -30,7 +30,7 @@ func (cl *ControllerList) SetUpRoutes(e *echo.Echo) {
 	Auth.PUT("/items/:id", cl.ItemController.Update, middlewares.VerifyToken)
 	Auth.DELETE("/items/:id", cl.ItemController.Delete, middlewares.VerifyToken)
 	Auth.GET("/items/category/:category_id", cl.ItemController.GetItemsByCategoryId, middlewares.VerifyToken)
-	Auth.GET("/items/name", cl.ItemController.GetItemsByName, middlewares.VerifyToken)
+	Auth.GET("/items", cl.ItemController.GetItemsByName, middlewares.VerifyToken)
 	
 	Auth.GET("/categories", cl.CategoryController.GetAll, middlewares.VerifyToken)
 	Auth.GET("/categories/:id", cl.CategoryController.GetById, middlewares.VerifyToken)
